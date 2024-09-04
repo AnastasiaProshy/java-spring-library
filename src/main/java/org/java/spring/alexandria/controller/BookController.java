@@ -7,6 +7,7 @@ import org.java.spring.alexandria.repo.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -15,9 +16,11 @@ public class BookController
 {
 	// repository field con autowired per d.i.
 	
+	
 	@Autowired
 	private BookRepository repo;
 	
+	@GetMapping() 
 	public  String index(Model model) 
 	{
 		// take the data to deliver to books/index
