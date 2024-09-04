@@ -16,7 +16,10 @@ public class Book
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(name="title", nullable=false)
 	private String title;
+	
 	private String author;
 	
 	@Column(name="isbn_code", nullable=false)
@@ -29,7 +32,7 @@ public class Book
 	}
 
 	public void setId(Integer id) {
-		this.id = id;x
+		this.id = id;
 	}
 
 	public String getTitle() {
@@ -63,5 +66,4 @@ public class Book
 	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
 }
