@@ -7,7 +7,7 @@
 				<div class="row">
 					<div class="col-12">					
 						
-						<th:block th:if="$books.size() > 0">
+						<th:block th:if="${books.size() > 0}">
 							
 							<h1 class="py-4 mb-2 text-center">
 								List of available books
@@ -20,6 +20,8 @@
 										<th>Title</th>
 										<th>Author</th>
 										<th>ISBN</th>
+										<!-- <th >Updated At</th> -->
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -28,12 +30,27 @@
 										<td th:text="${book.title}"></td>
 										<td th:text="${book.author}"></td>
 										<td th:text="${book.isbn}"></td>
+										<!-- <td th:text="${book.updatedAt}"></td> -->
+										<td>
+											<a th:href="@{/books/{id}(id=${book.id})}"
+											class="btn btn-sm btn-primary">
+											Show
+											</a>								
+											<a 
+											class="btn btn-sm btn-success">
+											Edit
+											</a>								
+											<a 
+											class="btn btn-sm btn-warning">
+											Delete
+											</a>
+										</td>										
 										</tr>						
 								</tbody>
 							</table>						
 						</th:block>
 						<th:block th:unless="${books.size() > 0}">
-							<h3 class="py=5 text*center">
+							<h3 class="py=5 text-center">
 								No books are available this time...
 							</h3>
 						</th:block>

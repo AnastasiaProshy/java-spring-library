@@ -1,6 +1,8 @@
 package org.java.spring.alexandria.model;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
+
+import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,7 +27,8 @@ public class Book
 	@Column(name="isbn_code", nullable=false)
 	private String isbn;
 
-	private LocalDateTime updatedAt;
+	@UpdateTimestamp
+	private Instant updatedAt;
 
 	public Integer getId() {
 		return id;
@@ -59,11 +62,11 @@ public class Book
 		this.isbn = isbn;
 	}
 
-	public LocalDateTime getUpdatedAt() {
+	public Instant getUpdatedAt() {
 		return updatedAt;
 	}
 
-	public void setUpdatedAt(LocalDateTime updatedAt) {
+	public void setUpdatedAt(Instant updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 }
