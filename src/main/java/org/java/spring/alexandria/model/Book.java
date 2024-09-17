@@ -10,6 +10,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "books")
@@ -19,11 +22,20 @@ public class Book
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotNull
+	@NotEmpty
+	@Size(min=2,max=255)
 	@Column(name="title", nullable=false)
 	private String title;
 	
+	@NotNull
+	@NotEmpty
+	@Size(min=5,max=255)
 	private String author;
 	
+	@NotNull
+	@NotEmpty
+	@Size(min=10,max=16)
 	@Column(name="isbn_code", nullable=false)
 	private String isbn;
 
